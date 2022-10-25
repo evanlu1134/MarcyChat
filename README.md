@@ -1,13 +1,13 @@
 # MarcyChat
 
 ## Heading
-The Marcy chat fancies those within the community to get together and communicate. The ideal tailors to plan events, find common ground, and gossip around while supporting each other. Those who join will be able to get information about all persons in the Marcy community. Welcome to the Marcy family!
+The Marcy chat fancies those within the community to get together and communicate. The ideal tailors to plan events, find common ground, and gossip around while supporting each other. Those who join will be able to get information about all persons in the Marcy community. Welcome inside the Marcy family!
 
 ## Sub-Heading
-The target audiences is for our current Marcy Lab fellows to hang out and build their relationships even further beyond.
+The target audiences is for our current Marcy Lab fellows to hang out more and build their relationships even further beyond.
 
 ## Summary
-Give a summary of the product and the benefit. What are all the things a user can do when use your product? This is the most important section for your readers, so make this paragraph good. (5+ sentences)
+The Marcy chat is a social informative platform designed to cater and expand the newtworks inside of the communities. The aim is develop an open source space making sure of every fellows' comfort, securance, and enjoyability is being welcomed. Therefore, we provide the Marcy users the ability to login and post any comments, suggestions, and snapshot their highlights. Furthermore, the users can view these post to discover the life, the evnivronment, and the many events hosted by Marcy. Marcy treaures and provides a home for all their members, time to host your post now.
 
 ## Problem
 Describe the problem your product solves. Who experiences this problem? (3+ sentences)
