@@ -1,10 +1,10 @@
-# Project Name
+# MarcyChat
 
 ## Heading
-Name the product in a way the reader (i.e. your target customers) will understand. (3+ sentences)
+The Marcy chat fancies those within the community to get together and communicate. The ideal tailors to plan events, find common ground, and gossip around while supporting each other. Those who join will be able to get information about all persons in the Marcy community. Welcome to the Marcy family!
 
 ## Sub-Heading
-Describe who the market for the product is and what benefit they get. (One sentence only underneath the title)
+The target audiences is for our current Marcy Lab fellows to hang out and build their relationships even further beyond.
 
 ## Summary
 Give a summary of the product and the benefit. What are all the things a user can do when use your product? This is the most important section for your readers, so make this paragraph good. (5+ sentences)
