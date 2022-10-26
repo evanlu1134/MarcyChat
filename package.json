@@ -1,0 +1,37 @@
+{
+  "name": "ecw",
+  "version": "1.0.0",
+  "description": "Name the product in a way the reader (i.e. your target customers) will understand. (3+ sentences)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evanlu1134/ECW.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evanlu1134/ECW/issues"
+  },
+  "homepage": "https://github.com/evanlu1134/ECW#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-flash": "^0.0.2",
+    "express-router": "^0.0.1",
+    "express-session": "^1.17.3",
+    "knex": "^2.3.0",
+    "method-override": "^3.0.0",
+    "passport": "^0.6.0",
+    "pg": "^8.8.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.20"
+  }
+}
