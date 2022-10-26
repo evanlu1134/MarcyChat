@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "knex": "^2.3.0",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0"
+  },
+  "name": "ecw",
+  "description": "The MarcyChat fancies those within the community to get together and communicate. The ideal tailors to plan events, find common ground, and gossip around while supporting each other. Those who join will be able to get information about all persons in the Marcy community. Welcome inside the Marcy family!",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evanlu1134/ECW.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evanlu1134/ECW/issues"
+  },
+  "homepage": "https://github.com/evanlu1134/ECW#readme"
+}
