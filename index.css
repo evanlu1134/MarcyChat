@@ -19,13 +19,14 @@
     border: 0 solid black;
 }
 
-#submit-button {
+#submit-button-post {
     justify-content: center;
     background-color: white;
     min-height: 38px;
     min-width: 60px;
     padding-right: 4px;
-    border: 0 solid black;
+    border-style: solid;
+    border-color: black;
     border-radius: 0px 25px 25px 0px;
 }
 
