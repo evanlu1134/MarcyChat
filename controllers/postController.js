@@ -8,9 +8,9 @@ const getPosts = async (req, res) => {
 }
 
 const addPost = async (req, res) => {
-    const {post_description, id} = req.body
+    const {post_description, student_id} = req.body
     console.log(req.body)
-    const studentList = await Post.addPostFromDB(post_description, id)
+    const studentList = await Post.addPostFromDB(post_description, student_id)
     return studentList ? res.status(200).send(studentList) : res.sendStatus(404);
 }
 module.exports = {
