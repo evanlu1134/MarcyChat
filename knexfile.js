@@ -6,9 +6,9 @@
     development: {
       client: 'pg',
       connection: {
-        database: 'marcy',
-        user:     'marcy',
-        password: 'marcy',
+        database: 'marcy_chat',
+        user:     'evanlu0614',
+        password: 'elu',
         host: 'localhost'
     }
 },
@@ -26,4 +26,4 @@
       }
     }
   
-    //1
+    
