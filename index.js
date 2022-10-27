@@ -95,7 +95,9 @@ const renderPost = (post) => {
     commentBar.append(commentButtonSubmit)
 }
 
+
 const url = "http://localhost:3000/posts"
+
 async function getToDo() {
     let res = await fetch(url)
     let data = await res.json()
