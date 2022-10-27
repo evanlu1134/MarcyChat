@@ -4,24 +4,31 @@ const UserModel = require("../models/usersModel.js");
 
 class authController {
   static validateRegistration = async (req, res) => {
-    const { firstName, lastName, email, password} =
-      req.body;
+    let validated=false;
     console.log(req.body);
+    const { email, password} = req.body;
     // Checks if User already exists
     const user = await UserModel.getUserFromDB(email);
-    if (user.length > 0) return res.status(401).json("User exists");
+    if (user.length > 0) {return res.status(401).json("User exists"),validated=true;}
+
+    if(!validated){
+const name = await UserModel.getUserFromDB(email)
+let firstName = name.first;}
+return res.status(201).json(`Successfully Registered!, ${firstName}`);
+    
     // Hash the password and create user using model
     const hashedPassword = bcrypt.hashSync(password, 10);
-    const userInfo = {
-      firstName,
-      lastName,
-      email,
-      hashedPassword
-    };
-    const newUser = await UserModel.createUserFromDB(userInfo);
-    return res.status(201).json(`Successfully Registered!`);
+   
+   
   };
 
+  static check  = async (req, res) => {
+  
+    const name = await UserModel.getAllUsersFromDB()
+    return res.status(201).json(`${name}`);
+  }
+
+  
   static validateLogin = async (req, res) => {
     const { email, password } = req.body;
     const user = await UserModel.getUserFromDB(email);
@@ -64,8 +71,8 @@ class authController {
         return res.status(401).json(`Not authenticated`);
       } else {
         try {
-          const userId = decoded.userId;
-          const user = await UserModel.getUserFromDBByID(userId);
+          const id = decoded.id;
+          const user = await UserModel.getUserFromDBByID(id);
           const accessToken = jwt.sign(user[0], "Your_Secret_Key", {
             expiresIn: "1d",
           });
@@ -81,4 +88,4 @@ class authController {
     });
   };
 }
-module.exports = authController;
+module.exports = authController

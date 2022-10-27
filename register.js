@@ -7,9 +7,7 @@ form.addEventListener("submit", (event) => {
     const password = document.querySelector("#password").value
     const firstName = document.querySelector("#firstName").value
     const lastName = document.querySelector("#lastName").value
-
-
-  
+    
     console.log(email)
     console.log(password)
     const myHeaders = new Headers();

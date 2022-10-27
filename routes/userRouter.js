@@ -5,13 +5,13 @@ const UserController = require("../Controllers/userControllers.js");
 
 const router = express.Router();
 
-router.get("/user", UserController.getAllUsers);
+router.get("/", UserController.getAllUsers);
 
-router.get("/user/:id", UserController.getSingleUser);
+router.get("/:id", UserController.getSingleUser);
 
-app.post("/register",UserController.createUser)
+router.post("/",UserController.createUser)
 
-router.post("/register",UserController.createUser)
+
 
 // router.get("/user/:id/friends", FriendController.getAllFriends);
 
