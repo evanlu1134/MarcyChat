@@ -93,10 +93,17 @@ const renderPost = (post) => {
     commentButtonSubmit.setAttribute("class", "submit-comment-button")
     commentButtonSubmit.innerText = ("Post Comment")
     commentBar.append(commentButtonSubmit)
-    
-
-
 }
+
+async function getToDo() {
+    let res = await fetch("http://localhost:5432/posts")
+    let data = await res.json()
+    let todoData = await data
+    console.log(todoData)
+  }
+  getToDo()
+  
+
 submitPostButton.addEventListener("click", (event) => {
     event.preventDefault()
     renderPost(postInput.value)

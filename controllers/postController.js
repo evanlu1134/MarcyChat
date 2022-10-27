@@ -3,6 +3,7 @@ const Post = require('../models/postModel')
 
 
 const getPosts = async (req, res) => {
+    console.log("hi")
     const studentList = await Post.getPostFromDB()
     return studentList ? res.status(200).send(studentList) : res.sendStatus(404);
 }
