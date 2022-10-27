@@ -26,3 +26,4 @@ Adding a likes feature, as well as add a suggestion board.
 
 ## Wireframes
 Figma -  https://www.figma.com/file/bETE4c547zhYyYbEQchKHt/Untitled?node-id=0%3A1
+

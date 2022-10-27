@@ -11,6 +11,7 @@
     <title>MarcyChat</title>
 </head>
 
+
 <body>
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
@@ -22,13 +23,17 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="#">Profile</a>
-                    <a class="nav-link" href="#">Logout</a>
+                    <a class="nav-link" href="#">Profiles</a>
+                    <a class="nav-link" href="#">Log Out</a>
+
+                    
+               
                 </div>
             </div>
         </div>
     </nav>
 
+    <h2 id="welcome"></h2>
     <form>
         <div id="post-bar">
             <input type="text" id="post-text" name="search" size="35" placeholder="     What's on your mind?" required>
@@ -39,7 +44,7 @@
     <div class="post">
         <div class="post-info">
             <div class="username">
-                <p class="username-text">username</p>
+                <p class="username-text"></p>
             </div>
             <div class="timestamp">
                 <p class="timestamp-text">10 hours ago</p>
@@ -60,7 +65,7 @@
         <div class="comments-section">
             <div class="comment-box">
                 <div class="commenter-name">
-                    <p class="commenter-name-text">username</p>
+                    <p class="username-text">username</p>
                 </div>
                 <div class="commenter-comment">
                     <p class="commenter-comment-text">This is my comment</p>
