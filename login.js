@@ -28,9 +28,6 @@ form.addEventListener("submit", (event) => {
 
 
 form.addEventListener("submit", () => {
-
-
-
   var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 
@@ -45,15 +42,15 @@ fetch("http://localhost:3000/login", requestOptions)
   .then(response => response.text())
   .then(result => {
     if(result!==null || result.length>0){
+      console.log(result)
     form.style.display="none"
     register.style.display="none"
-    welcome.innerText=  `Welcome to Marcy Chat ${result}`}
+   window.location.href = "./index.html"}
     else{
       form.style.display="none"
-      register.style.display="none"
-      welcome.innerText=  `User not found`}
+      register.style.display="none"}
+    
     })
-
+  
   .catch(error => console.log('error', error));
-
 })

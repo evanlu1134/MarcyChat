@@ -23,4 +23,5 @@ firstName,lastName,password, email
   };
 
   fetch(url, requestOptions);
+  window.location.href = "./login.html"
 })

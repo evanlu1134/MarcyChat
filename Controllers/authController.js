@@ -7,24 +7,26 @@ class authController {
     let validated=false;
     console.log(req.body);
     const { email, password} = req.body;
+    let passwords=""
     // Checks if User already exists
+    passwords= bcrypt.hash(password, 10)
     const user = await UserModel.getUserFromDB(email);
-    if (user.length > 0) {return res.status(401).json("User exists"),validated=true;}
+    console.log(passwords)
+    const user2 = await UserModel.getUserFromDBByID(passwords)
+    if (user.length > 0 && user2.length> 0)  {return res.status(401).json("User exists"),validated=true;}
 
     if(!validated){
-const name = await UserModel.getUserFromDB(email)
-let firstName = name.first;}
-return res.status(201).json(`Successfully Registered!, `);
-    
+const name = await UserModel.getAllUsersFromDB()
+console.log(name)
+return res.status(201).json(`${name}`);
+    }
     // Hash the password and create user using model
-    const hashedPassword = bcrypt.hashSync(password, 10);
-   
-   
+   passwords = bcrypt.hashSync(password, 10);
   };
 
   static check  = async (req, res) => {
-  
     const name = await UserModel.getAllUsersFromDB()
+    console.log(name)
     return res.status(201).json(`${name}`);
   }
 
@@ -32,20 +34,21 @@ return res.status(201).json(`Successfully Registered!, `);
   static validateLogin = async (req, res) => {
     const { email, password } = req.body;
     const user = await UserModel.getUserFromDB(email);
+    let passwords= bcrypt.hash(password, 10)
     if (user.length === 0) {
       return res.status(401).json({ message: "User not found" });
     }
-    const validation = await bcrypt.compare(password, user[0].password);
+    const validation = await bcrypt.compare(passwords, user[0].password);
     if (!validation) {
       return res.status(404).json({ message: "Incorrect Password" });
     }
     // JWT
 
-    const token = jwt.sign({ userId: user[0].id }, "Your_Secret_Key", {
+    const token = jwt.sign({ id: user[0].id }, "Your_Secret_Key", {
       expiresIn: "1d",
     });
     //
-    const refreshToken = jwt.sign({ userId: user[0].id }, "Your_Secret_Key", {
+    const refreshToken = jwt.sign({ id: user[0].id }, "Your_Secret_Key", {
       expiresIn: "7d",
     });
     user[0].isAuth = true;

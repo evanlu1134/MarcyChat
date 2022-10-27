@@ -17,5 +17,14 @@
   "bugs": {
     "url": "https://github.com/evanlu1134/ECW/issues"
   },
-  "homepage": "https://github.com/evanlu1134/ECW#readme"
+  "homepage": "https://github.com/evanlu1134/ECW#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^2.3.0",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0"
+  }
 }

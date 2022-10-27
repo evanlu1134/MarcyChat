@@ -9,6 +9,7 @@ router.post("/", authController.validateLogin);
 router.post("/", authController.authenticate);
 
 router.get("/", authController.check);
-// router.post('/', AuthController.logOut);
+
+router.post('/', authController.logOut);
 
 module.exports = router;

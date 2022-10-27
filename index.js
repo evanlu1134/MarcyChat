@@ -95,7 +95,7 @@ const renderPost = (post) => {
     commentBar.append(commentButtonSubmit)
 }
 
-const url = "http://localhost:5432/posts"
+const url = "http://localhost:3000/posts"
 async function getToDo() {
     let res = await fetch(url)
     let data = await res.json()
@@ -110,3 +110,25 @@ submitPostButton.addEventListener("click", (event) => {
     event.preventDefault()
     renderPost(postInput.value)
 })
+const welcome =document.getElementById("welcome")
+const username=document.querySelector(".username-text")
+
+window.addEventListener('DOMContentLoaded', () => {
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  
+  
+  var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+  };
+  
+  fetch("http://localhost:3000/login", requestOptions)
+.then(response => response.text())
+.then(result => {
+  welcome.innerText=  `Welcome to Marcy Chat ${result}`})
+  username.innerText= `${result}`
+.catch(error => console.log('error', error));
+
+});
