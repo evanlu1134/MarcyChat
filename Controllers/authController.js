@@ -14,7 +14,7 @@ class authController {
     if(!validated){
 const name = await UserModel.getUserFromDB(email)
 let firstName = name.first;}
-return res.status(201).json(`Successfully Registered!, ${firstName}`);
+return res.status(201).json(`Successfully Registered!, `);
     
     // Hash the password and create user using model
     const hashedPassword = bcrypt.hashSync(password, 10);

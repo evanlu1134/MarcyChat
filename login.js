@@ -1,6 +1,7 @@
 const url = 'http://localhost:3000/login'
 const form = document.forms["create-todo-form"]
 const welcome= document.getElementById("welcome")
+const register=document.getElementById("register")
 
 form.addEventListener("submit", (event) => {
     event.preventDefault()
@@ -45,9 +46,11 @@ fetch("http://localhost:3000/login", requestOptions)
   .then(result => {
     if(result!==null || result.length>0){
     form.style.display="none"
+    register.style.display="none"
     welcome.innerText=  `Welcome to Marcy Chat ${result}`}
     else{
       form.style.display="none"
+      register.style.display="none"
       welcome.innerText=  `User not found`}
     })
 
