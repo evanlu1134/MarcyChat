@@ -1,5 +1,8 @@
 let postInput = document.body.querySelector("#post-text")
+let commentInput = document.body.querySelector("#comment-text")
 let submitPostButton = document.body.querySelector("#submit-button-post")
+let submitCommentButton= document.body.querySelector("#submit-comment-text")
+
 
 const renderPost = (post) => {
     // Post Info Section
@@ -130,6 +133,22 @@ submitPostButton.addEventListener("click", async(event) => {
     renderPost(newPost);
   });
 
+// //Comment post
+//   submitCommentButton.addEventListener("click", async(event) => {
+//     const input = commentInput.value;
+//     const body = { commentary: `${input}`, user_id: welcome.id};
+//     const post = {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify(body),
+//     }
+//     let response = await fetch(`${url}/posts`, post);
+//     let postList = await response.json();
+//     console.log(postList)
+//     let newPost = postList[postList.length - 1];
+//     renderPost(newPost);
+//   });
+
 
 //rendering user's welcome
 async function welcomeUser() {
@@ -146,12 +165,12 @@ async function welcomeUser() {
 welcomeUser();
 
 
-async function loadAll() {
-  const response = await fetch(`${url}/users/all`);
-  const data = await response.json();
-  console.log(data)
-}
-loadAll()
+// async function loadAll() {
+//   const response = await fetch(`${url}/users/all`);
+//   const data = await response.json();
+//   console.log(data)
+// }
+// loadAll()
 
 
 //logout button

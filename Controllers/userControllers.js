@@ -3,19 +3,21 @@ const UserModel = require("../models/usersModel.js");
 
 
     const getAllUsers = async (req, res) => {
-        const users = await UserModel.getAllUsersFromDB();
+        const users = await UserModel.getAllUsersFromDB;
         return res.status(201).json(users);
     }
 
-    const getAllUsersInfo = async (req, res) => {
-        const user = await UserModel.getAllUsersInfoFromDB();
-        return res.status(201).json(user);
-    };
+    // const getAllUsersInfo = async (req, res) => {
+    //     const id = req.params.id;
+    //     const user = await UserModel.getAllUsersInfoFromDB(id);
+    //     console.log(user.first_name)
+    //     return res.status(200).json(user);
+    // };
 
     const getSingleUser = async (req, res) => {
         const userId = req.params.id;
         const user = await UserModel.getSingleUserFromDB(userId);
-        return res.status(201).json(user);
+        return res.status(201).json(user.first_name);
     };
 
 
@@ -33,5 +35,5 @@ const UserModel = require("../models/usersModel.js");
         return res.status(201).json(user);
 
     }
-    module.exports={getAllUsers,getAllUsersInfo,getSingleUser,getSingleUserById,createUser}
+    module.exports={getAllUsers,getSingleUser,getSingleUserById,createUser}
 
