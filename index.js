@@ -97,39 +97,61 @@ const renderPost = (post) => {
 }
 
 
-const url = "http://localhost:3000/posts"
-async function getToDo() {
-    let res = await fetch(url)
-    let data = await res.json()
-    console.log(data)
-    let todoData = await data
-    console.log(todoData)
+
+const url = "http://localhost:3000";
+
+async function getPosts() {
+  let res = await fetch(`${url}/posts`);
+  let data = await res.json();
+  let todoData = await data;
+  console.log(todoData);
+  for (const items of todoData) {
+    let postTimes = items.post_description
+    renderPost(postTimes);
   }
-  getToDo()
-  
+}
+getPosts();
 
-submitPostButton.addEventListener("click", (event) => {
-    event.preventDefault()
-    renderPost(postInput.value)
-})
-const welcome =document.getElementById("welcome")
-const username=document.querySelector(".username-text")
 
-window.addEventListener('DOMContentLoaded', () => {
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  
-  
- 
-fetch("http://localhost:3000/users")
-.then(response => response.json())
-.then(result => {
-  welcome.innerText=  `Welcome to Marcy Chat ${result.first_name}`
-  username.innerText= `${result}`})
-.catch(error => console.log('error', error));
+//Users Post
+submitPostButton.addEventListener("click", async(event) => {
+    const input = postInput.value;
+    const body = { post_description: `${input}`, user_id: welcome.id};
+    const post = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }
+    let response = await fetch(`${url}/posts`, post);
+    let postList = await response.json();
+    console.log(postList)
+    let newPost = postList[postList.length - 1];
+    renderPost(newPost);
+  });
+
+
+
+const welcome = document.getElementById("welcome");
+const username = document.querySelector(".username-text");
+
+//rendering user's welcome
+async function welcomeUser() {
+  const response = await fetch(`${url}/users`);
+  const result = await response.json();
+  console.log(result)
+  let welcomer = await result.first_name;
+  let welcome_id = await result.user_id;
+  console.log(welcome_id)
+  welcome.id = welcome_id
+  welcome.innerText = `Welcome to Marcy Chat ${welcomer}`;
+  username.innerText = welcomer;
+}
+welcomeUser();
+
+
+//logout button
+const logout = document.querySelector("#logout");
+
+logout.addEventListener("click", () => {
+  window.location.href = "./login.html";
 });
-
-const logout =document.querySelector("#logout")
-logout.addEventListener("click",()=>{
-  window.location.href = "./login.html"
-})
