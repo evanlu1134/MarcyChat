@@ -3,7 +3,12 @@ const {pool} = require("../db.js");
 
 class UserModel {
     static getAllUsersFromDB(){
-        return pool.query('SELECT * FROM users ORDER BY user_id DESC LIMIT 1').then(results => {; return results.rows[0]})
+        return pool.query('SELECT * FROM users ORDER BY user_id').then(results => {; return results.rows[0]})
+
+    };
+
+    static getAllUsersInfoFromDB(){
+        return pool.query('SELECT * FROM users JOIN posts ON users.user_id = posts.user_id;').then(results => {; return results.rows[0]})
 
     };
 

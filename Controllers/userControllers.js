@@ -7,11 +7,18 @@ const UserModel = require("../models/usersModel.js");
         return res.status(201).json(users);
     }
 
+    const getAllUsersInfo = async (req, res) => {
+        const user = await UserModel.getAllUsersInfoFromDB();
+        return res.status(201).json(user);
+    };
+
     const getSingleUser = async (req, res) => {
         const userId = req.params.id;
         const user = await UserModel.getSingleUserFromDB(userId);
         return res.status(201).json(user);
     };
+
+
 
     const getSingleUserById = async (req, res) => {
         const userId = req.params.id;
@@ -26,5 +33,5 @@ const UserModel = require("../models/usersModel.js");
         return res.status(201).json(user);
 
     }
-    module.exports={getAllUsers,getSingleUser,getSingleUserById,createUser}
+    module.exports={getAllUsers,getAllUsersInfo,getSingleUser,getSingleUserById,createUser}
 

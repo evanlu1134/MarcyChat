@@ -95,7 +95,8 @@ const renderPost = (post) => {
     commentButtonSubmit.innerText = ("Post Comment")
     commentBar.append(commentButtonSubmit)
 }
-
+const welcome = document.getElementById("welcome");
+const username = document.querySelector(".username-text");
 
 
 const url = "http://localhost:3000";
@@ -104,8 +105,8 @@ async function getPosts() {
   let res = await fetch(`${url}/posts`);
   let data = await res.json();
   let todoData = await data;
-  console.log(todoData);
   for (const items of todoData) {
+    console.log(items)
     let postTimes = items.post_description
     renderPost(postTimes);
   }
@@ -130,10 +131,6 @@ submitPostButton.addEventListener("click", async(event) => {
   });
 
 
-
-const welcome = document.getElementById("welcome");
-const username = document.querySelector(".username-text");
-
 //rendering user's welcome
 async function welcomeUser() {
   const response = await fetch(`${url}/users`);
@@ -147,6 +144,14 @@ async function welcomeUser() {
   username.innerText = welcomer;
 }
 welcomeUser();
+
+
+async function loadAll() {
+  const response = await fetch(`${url}/users/all`);
+  const data = await response.json();
+  console.log(data)
+}
+loadAll()
 
 
 //logout button
