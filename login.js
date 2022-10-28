@@ -28,11 +28,11 @@ form.addEventListener("submit", (event) => {
 
 
 form.addEventListener("submit", () => {
-  var myHeaders = new Headers();
+const myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 
 
-var requestOptions = {
+const requestOptions = {
   method: 'GET',
   headers: myHeaders,
   redirect: 'follow'
@@ -45,8 +45,8 @@ fetch("http://localhost:3000/login", requestOptions)
       console.log(result)
     form.style.display="none"
     register.style.display="none"
-   window.location.href = "./index.html"}
-    else{
+   window.location.href = "./index.html"
+  }else{
       form.style.display="none"
       register.style.display="none"}
     

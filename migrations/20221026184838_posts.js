@@ -8,8 +8,8 @@
         table.string('post_description').notNullable;
         table.timestamp("creation_Date").notNullable().defaultTo(knex.fn.now());
         table.timestamp("updation_Date").notNullable().defaultTo(knex.fn.now());
-        table.integer('student_id').notNullable;
-        table.foreign('student_id').references('student_id').inTable('students');
+        table.integer('user_id').notNullable;
+        table.foreign('user_id').references('user_id').inTable('users');
     })
 };
 /**

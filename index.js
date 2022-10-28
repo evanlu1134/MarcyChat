@@ -116,19 +116,15 @@ const welcome =document.getElementById("welcome")
 const username=document.querySelector(".username-text")
 
 window.addEventListener('DOMContentLoaded', () => {
-  var myHeaders = new Headers();
+  const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   
   
-  var requestOptions = {
-    method: 'GET',
-    headers: myHeaders,
-    redirect: 'follow'
-  };  
-fetch("http://localhost:3000/login", requestOptions)
-.then(response => response.text())
+ 
+fetch("http://localhost:3000/users")
+.then(response => response.json())
 .then(result => {
-  welcome.innerText=  `Welcome to Marcy Chat ${result}`
+  welcome.innerText=  `Welcome to Marcy Chat ${result.first_name}`
   username.innerText= `${result}`})
 .catch(error => console.log('error', error));
 });
