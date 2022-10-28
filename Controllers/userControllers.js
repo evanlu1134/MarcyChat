@@ -3,15 +3,24 @@ const UserModel = require("../models/usersModel.js");
 
 
     const getAllUsers = async (req, res) => {
-        const users = await UserModel.getAllUsersFromDB();
+        const users = await UserModel.getAllUsersFromDB;
         return res.status(201).json(users);
     }
+
+    // const getAllUsersInfo = async (req, res) => {
+    //     const id = req.params.id;
+    //     const user = await UserModel.getAllUsersInfoFromDB(id);
+    //     console.log(user.first_name)
+    //     return res.status(200).json(user);
+    // };
 
     const getSingleUser = async (req, res) => {
         const userId = req.params.id;
         const user = await UserModel.getSingleUserFromDB(userId);
-        return res.status(201).json(user);
+        return res.status(201).json(user.first_name);
     };
+
+
 
     const getSingleUserById = async (req, res) => {
         const userId = req.params.id;

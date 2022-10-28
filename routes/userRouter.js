@@ -9,6 +9,8 @@ router.get("/", UserController.getAllUsers);
 
 router.get("/:id", UserController.getSingleUser);
 
+// router.get("/:id", UserController.getAllUsersInfo);
+
 router.post("/",UserController.createUser)
 
 

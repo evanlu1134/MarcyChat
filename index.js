@@ -1,5 +1,8 @@
 let postInput = document.body.querySelector("#post-text")
+let commentInput = document.body.querySelector("#comment-text")
 let submitPostButton = document.body.querySelector("#submit-button-post")
+let submitCommentButton= document.body.querySelector("#submit-comment-text")
+
 
 const renderPost = (post) => {
     // Post Info Section
@@ -95,7 +98,8 @@ const renderPost = (post) => {
     commentButtonSubmit.innerText = ("Post Comment")
     commentBar.append(commentButtonSubmit)
 }
-
+const welcome = document.getElementById("welcome");
+const username = document.querySelector(".username-text");
 
 
 const url = "http://localhost:3000";
@@ -104,8 +108,8 @@ async function getPosts() {
   let res = await fetch(`${url}/posts`);
   let data = await res.json();
   let todoData = await data;
-  console.log(todoData);
   for (const items of todoData) {
+    console.log(items)
     let postTimes = items.post_description
     renderPost(postTimes);
   }
@@ -129,10 +133,22 @@ submitPostButton.addEventListener("click", async(event) => {
     renderPost(newPost);
   });
 
+// //Comment post
+//   submitCommentButton.addEventListener("click", async(event) => {
+//     const input = commentInput.value;
+//     const body = { commentary: `${input}`, user_id: welcome.id};
+//     const post = {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify(body),
+//     }
+//     let response = await fetch(`${url}/posts`, post);
+//     let postList = await response.json();
+//     console.log(postList)
+//     let newPost = postList[postList.length - 1];
+//     renderPost(newPost);
+//   });
 
-
-const welcome = document.getElementById("welcome");
-const username = document.querySelector(".username-text");
 
 //rendering user's welcome
 async function welcomeUser() {
@@ -147,6 +163,14 @@ async function welcomeUser() {
   username.innerText = welcomer;
 }
 welcomeUser();
+
+
+// async function loadAll() {
+//   const response = await fetch(`${url}/users/all`);
+//   const data = await response.json();
+//   console.log(data)
+// }
+// loadAll()
 
 
 //logout button
