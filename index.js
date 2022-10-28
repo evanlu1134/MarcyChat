@@ -151,18 +151,18 @@ submitPostButton.addEventListener("click", async(event) => {
 
 
 //rendering user's welcome
-async function welcomeUser() {
-  const response = await fetch(`${url}/users`);
-  const result = await response.json();
-  console.log(result)
-  let welcomer = await result.first_name;
-  let welcome_id = await result.user_id;
-  console.log(welcome_id)
-  welcome.id = welcome_id
-  welcome.innerText = `Welcome to Marcy Chat ${welcomer}`;
-  username.innerText = welcomer;
-}
-welcomeUser();
+// async function welcomeUser() {
+//   const response = await fetch(`${url}/users`);
+//   const result = await response.json();
+//   console.log(result)
+//   let welcomer = await result.first_name;
+//   let welcome_id = await result.user_id;
+//   console.log(welcome_id)
+//   welcome.id = welcome_id
+//   welcome.innerText = `Welcome to Marcy Chat ${welcomer}`;
+//   username.innerText = welcomer;
+// }
+// welcomeUser();
 
 
 // async function loadAll() {
