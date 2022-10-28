@@ -121,11 +121,10 @@ window.addEventListener('DOMContentLoaded', () => {
   
   
  
-fetch("http://localhost:3000/login")
-.then(response => response.text())
+fetch("http://localhost:3000/users")
+.then(response => response.json())
 .then(result => {
-  console.log(result)
-  welcome.innerText=  `Welcome to Marcy Chat ${result}`
+  welcome.innerText=  `Welcome to Marcy Chat ${result.first_name}`
   username.innerText= `${result}`})
 .catch(error => console.log('error', error));
 });

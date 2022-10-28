@@ -3,7 +3,7 @@ const {pool} = require("../db.js");
 
 class UserModel {
     static getAllUsersFromDB(){
-        return pool.query('SELECT * FROM users ORDER BY user_id DESC LIMIT 1').then(results => { console.log("Hi",results.rows[0]); return results.rows[0].first })
+        return pool.query('SELECT * FROM users ORDER BY user_id DESC LIMIT 1').then(results => {; return results.rows[0]})
 
     };
 
@@ -14,9 +14,9 @@ class UserModel {
 
     };
 
-    static createUserFromDb(first,last,email,password){
+    static createUserFromDb(...args){
  
-        return pool.query('INSERT INTO users (first_name, last_name, email, password) VALUES ($1,$2,$3,$4) RETURNING * ', [first,last,email,password]).then(results => { return results.rows })
+        return pool.query('INSERT INTO users (first_name, last_name, email, password) VALUES ($1,$2,$3,$4) RETURNING * ', args).then(results => { return results.rows })
     };
 
 
