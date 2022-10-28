@@ -1,5 +1,6 @@
 let postInput = document.body.querySelector("#post-text")
 let submitPostButton = document.body.querySelector("#submit-button-post")
+
 const renderPost = (post) => {
     // Post Info Section
     let postContainer = document.createElement("div")
@@ -97,7 +98,6 @@ const renderPost = (post) => {
 
 
 const url = "http://localhost:3000/posts"
-
 async function getToDo() {
     let res = await fetch(url)
     let data = await res.json()
@@ -124,13 +124,16 @@ window.addEventListener('DOMContentLoaded', () => {
     method: 'GET',
     headers: myHeaders,
     redirect: 'follow'
-  };
-  
-  fetch("http://localhost:3000/login", requestOptions)
+  };  
+fetch("http://localhost:3000/login", requestOptions)
 .then(response => response.text())
 .then(result => {
-  welcome.innerText=  `Welcome to Marcy Chat ${result}`})
-  username.innerText= `${result}`
+  welcome.innerText=  `Welcome to Marcy Chat ${result}`
+  username.innerText= `${result}`})
 .catch(error => console.log('error', error));
-
 });
+
+const logout =document.querySelector("#logout")
+logout.addEventListener("click",()=>{
+  window.location.href = "./login.html"
+})

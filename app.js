@@ -29,7 +29,3 @@ app.use("/posts", postRouter)
 app.use("/comments", commentRouter)
   
    app.listen(3000)
-
-// app.listen(PORT, () => {
-//     console.log(`listening http://localhost:${PORT}`)
-// })
