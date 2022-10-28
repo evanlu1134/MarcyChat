@@ -4,7 +4,6 @@
   const cors = require('cors')
   const userRoutes = require("./routes/userRouter.js");
   const authRoutes = require("./routes/AuthRouter.js");
-  const studentRouter = require('./routes/studentsRoutes')
   const postRouter = require('./routes/postRoutes')
   const commentRouter = require('./routes/commentRoutes')
   
@@ -13,10 +12,12 @@ app.use(express.json())
 app.use(cors())
 
 //pathways
-app.use("/students", studentRouter)
+app.use("/users",userRoutes)
 app.use("/posts", postRouter)
 app.use("/comments", commentRouter)
-app.use( "/auth",authRoutes)
+app.use("/auth",authRoutes)
 
-   app.listen(3000)
+
+
+app.listen(3000)
 

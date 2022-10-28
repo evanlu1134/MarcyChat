@@ -1,35 +1,40 @@
 const {pool} = require("../db.js");
-const bcrypt = require('bcrypt');
+
 
 class UserModel {
     static getAllUsersFromDB(){
-        return pool.query('SELECT * FROM users2 ORDER BY id DESC LIMIT 1').then(results => { console.log("Hi",results.rows[0]); return results.rows[0].first })
+        return pool.query('SELECT * FROM users ORDER BY user_id DESC Limit 1').then(results => {; return results.rows[0]})
 
     };
+
+    // static getAllUsersInfoFromDB(id){
+    //     return pool.query('SELECT first_name FROM users JOIN posts ON users.user_id = posts.user_id WHERE users.user_id = $1;'[id]).then(results => {console.log(results); return results.rows[0].first_name})
+
+    // };
 
     static getSingleUserFromDB = (id) => {
         return pool
             .query(
-                'SELECT * FROM users2 WHERE id = $1', [id]).then(results => { return results.rows[0] })
+                'SELECT * FROM users WHERE user_id = $1', [id]).then(results => { return results.rows[0] })
 
     };
 
-    static createUserFromDb(first,last,email,password){
+    static createUserFromDb(...args){
  
-        return pool.query('INSERT INTO users2 (first, last, email, password) VALUES ($1,$2,$3,$4) RETURNING * ', [first,last,email,password]).then(results => { return results.rows })
+        return pool.query('INSERT INTO users (first_name, last_name, email, password) VALUES ($1,$2,$3,$4) RETURNING * ', args).then(results => { return results.rows })
     };
 
 
     static getUserFromDB = (email) => {
         return pool
             .query(
-                'SELECT * FROM users2 WHERE email = $1', [email]).then(results => { return results.rows[0] })
+                'SELECT * FROM users WHERE email = $1', [email]).then(results => { return results.rows[0] })
     };
 
     static getUserFromDBByID = (id) => {
         return pool
             .query(
-                'SELECT * FROM users2 WHERE password = $1', [id]).then(results => { return results.rows[0] })
+                'SELECT * FROM users WHERE password = $1', [id]).then(results => { return results.rows[0] })
     };
 }
 

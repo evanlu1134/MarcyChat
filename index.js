@@ -1,5 +1,8 @@
 let postInput = document.body.querySelector("#post-text")
+let commentInput = document.body.querySelector("#comment-text")
 let submitPostButton = document.body.querySelector("#submit-button-post")
+let submitCommentButton= document.body.querySelector("#submit-comment-text")
+
 
 const renderPost = (post) => {
     // Post Info Section
@@ -95,45 +98,84 @@ const renderPost = (post) => {
     commentButtonSubmit.innerText = ("Post Comment")
     commentBar.append(commentButtonSubmit)
 }
+const welcome = document.getElementById("welcome");
+const username = document.querySelector(".username-text");
 
 
-const url = "http://localhost:3000/posts"
-async function getToDo() {
-    let res = await fetch(url)
-    let data = await res.json()
-    console.log(data)
-    let todoData = await data
-    console.log(todoData)
+const url = "http://localhost:3000";
+
+async function getPosts() {
+  let res = await fetch(`${url}/posts`);
+  let data = await res.json();
+  let todoData = await data;
+  for (const items of todoData) {
+    console.log(items)
+    let postTimes = items.post_description
+    renderPost(postTimes);
   }
-  getToDo()
-  
+}
+getPosts();
 
-submitPostButton.addEventListener("click", (event) => {
-    event.preventDefault()
-    renderPost(postInput.value)
-})
-const welcome =document.getElementById("welcome")
-const username=document.querySelector(".username-text")
 
-window.addEventListener('DOMContentLoaded', () => {
-  var myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  
-  
-  var requestOptions = {
-    method: 'GET',
-    headers: myHeaders,
-    redirect: 'follow'
-  };  
-fetch("http://localhost:3000/login", requestOptions)
-.then(response => response.text())
-.then(result => {
-  welcome.innerText=  `Welcome to Marcy Chat ${result}`
-  username.innerText= `${result}`})
-.catch(error => console.log('error', error));
+//Users Post
+submitPostButton.addEventListener("click", async(event) => {
+    const input = postInput.value;
+    const body = { post_description: `${input}`, user_id: welcome.id};
+    const post = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }
+    let response = await fetch(`${url}/posts`, post);
+    let postList = await response.json();
+    console.log(postList)
+    let newPost = postList[postList.length - 1];
+    renderPost(newPost);
+  });
+
+// //Comment post
+//   submitCommentButton.addEventListener("click", async(event) => {
+//     const input = commentInput.value;
+//     const body = { commentary: `${input}`, user_id: welcome.id};
+//     const post = {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify(body),
+//     }
+//     let response = await fetch(`${url}/posts`, post);
+//     let postList = await response.json();
+//     console.log(postList)
+//     let newPost = postList[postList.length - 1];
+//     renderPost(newPost);
+//   });
+
+
+//rendering user's welcome
+async function welcomeUser() {
+  const response = await fetch(`${url}/users`);
+  const result = await response.json();
+  console.log(result)
+  let welcomer = await result.first_name;
+  let welcome_id = await result.user_id;
+  console.log(welcome_id)
+  welcome.id = welcome_id
+  welcome.innerText = `Welcome to Marcy Chat ${welcomer}`;
+  username.innerText = welcomer;
+}
+welcomeUser();
+
+
+// async function loadAll() {
+//   const response = await fetch(`${url}/users/all`);
+//   const data = await response.json();
+//   console.log(data)
+// }
+// loadAll()
+
+
+//logout button
+const logout = document.querySelector("#logout");
+
+logout.addEventListener("click", () => {
+  window.location.href = "./login.html";
 });
-
-const logout =document.querySelector("#logout")
-logout.addEventListener("click",()=>{
-  window.location.href = "./login.html"
-})
