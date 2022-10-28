@@ -17,6 +17,6 @@ app.use("/students", studentRouter)
 app.use("/posts", postRouter)
 app.use("/comments", commentRouter)
 app.use( "/auth",authRoutes)
-  
-app.listen(3000)
+
+   app.listen(3000)
 
