@@ -1,9 +1,9 @@
-const {pool} = require("../db.js");
+const { pool } = require("../db.js");
 
 
 class UserModel {
-    static getAllUsersFromDB(){
-        return pool.query('SELECT * FROM users ORDER BY user_id DESC Limit 1').then(results => {; return results.rows[0]})
+    static getAllUsersFromDB() {
+        return pool.query('SELECT * FROM users ORDER BY user_id DESC Limit 1').then(results => { return results.rows[0] })
 
     };
 
@@ -19,8 +19,8 @@ class UserModel {
 
     };
 
-    static createUserFromDb(...args){
- 
+    static createUserFromDb(...args) {
+
         return pool.query('INSERT INTO users (first_name, last_name, email, password) VALUES ($1,$2,$3,$4) RETURNING * ', args).then(results => { return results.rows })
     };
 
