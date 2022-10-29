@@ -26,7 +26,7 @@ const renderPost = (post) => {
   timestampText.innerText = post["creation_Date"].slice(5, 10)
   timestampContainer.append(timestampText)
   postInfo.append(timestampContainer)
-
+ 
   //Post Content section
   let postContentContainer = document.createElement("div")
   postContentContainer.setAttribute("class", "post-content")
@@ -149,7 +149,7 @@ async function getPosts() {
   todoData.forEach(post => renderPost(post))
 }
 getPosts();
-
+  
 
 
 //Users Post
@@ -172,21 +172,35 @@ submitPostButton.addEventListener("click", async (event) => {
   renderPost(newPost);
 });
 
-//Comment post
-// submitCommentButton.addEventListener("click", async (event) => {
-//   const input = commentInput.value;
-//   const body = { commentary: `${input}`, user_id: welcome.id };
-//   const post = {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify(body),
-//   }
-//   let response = await fetch(`${url}/posts`, post);
-//   let postList = await response.json();
-//   console.log(postList)
-//   let newPost = postList[postList.length - 1];
-//   renderPost(newPost);
-// });
+//Render All commentPost to DOM
+async function getComments() {
+  let res = await fetch(`${url}/comments`);
+  let data = await res.json();
+  let commentData = await data;
+  console.log(commentData)
+  commentData.forEach((x) => {
+    let commentBox = document.createElement("div")
+    commentBox.setAttribute("class", "comment-box")
+    let postId = x.post_id
+    let commentSection = document.querySelector(`#comment-section-${postId}`)
+    commentSection.append(commentBox)
+    let commenterName = document.createElement("div")
+    commenterName.setAttribute("class", "commenter-name")
+    commentBox.append(commenterName)
+    let commenterNameText = document.createElement("p")
+    commenterNameText.setAttribute("class", "commenter-name-text")
+    commenterName.append(commenterNameText)
+    commenterNameText.innerText = `${x['first_name']} ${x['last_name']}`
+    let commentersComment = document.createElement("div")
+    commentersComment.setAttribute("class", "commenter-comment")
+    commentBox.append(commentersComment)
+    let commenterCommentText = document.createElement("p")
+    commenterCommentText.setAttribute("class", "commenter-comment-text")
+    commenterCommentText.innerText = x["commentary"]
+    commentersComment.append(commenterCommentText)
+  })
+}
+getComments();
 
 
 //rendering user's welcome
