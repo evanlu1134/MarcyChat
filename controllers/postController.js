@@ -8,11 +8,11 @@ const getPosts = async (req, res) => {
 }
 
 const addPost = async (req, res) => {
-    const {post_description, student_id} = req.body
+    const {post_description, user_id} = req.body
     console.log(req.body)
-    const addList = await Post.addPostFromDB(post_description, student_id)
+    const addList = await Post.addPostFromDB(post_description, user_id)
     return addList ? res.status(200).send(addList) : res.sendStatus(404);
-}
+} 
 module.exports = {
     getPosts,
     addPost

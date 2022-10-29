@@ -12,17 +12,17 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-light">
+  <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <img id="marcy-logo"
-        src="https://scontent-lga3-2.xx.fbcdn.net/v/t39.30808-6/277226378_336398221858699_2845459025042218157_n.png?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=wuvEomUFlqYAX9ylUhZ&_nc_ht=scontent-lga3-2.xx&oh=00_AfBq-I-Q2HCp6KxHbd089I0V6Pb2x2sqpO1uMX_OTaI1kw&oe=635F7398" />
+        src="/marcy_logo.png" />
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link" class="nav-link active" aria-current="page" href="#">Home</a>
           <a class="nav-link" href="#">Profiles</a>
           <a id="logout" class="nav-link" href="#">Log Out</a>
         </div>
@@ -31,14 +31,14 @@
   </nav>
 
   <h2 id="welcome"></h2>
-  <form>
+  <form id="submit-form">
     <div id="post-bar">
       <input type="text" id="post-text" name="search" size="35" placeholder="     What's on your mind?" required />
       <button id="submit-button-post">Post</button>
     </div>
   </form>
 
-  <div class="post">
+  <!-- <div class="post">
 
     <div class="post-info">
       <div class="username">
@@ -86,7 +86,7 @@
       </form>
     </div>
     
-  </div>
+  </div> -->
 </body>
 <script src="index.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
