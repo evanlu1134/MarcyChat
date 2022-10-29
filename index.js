@@ -3,7 +3,6 @@ let commentInput = document.body.querySelector("#comment-text")
 let submitPostButton = document.body.querySelector("#submit-button-post")
 let submitCommentButton = document.body.querySelector(".submit-comment-button")
 
-
 const renderPost = (post) => {
   // Post Info Section
   let postContainer = document.createElement("div")
@@ -15,7 +14,8 @@ const renderPost = (post) => {
   let username = document.createElement("p")
   username.setAttribute("class", "username-text")
   username.innerText = `${post["first_name"]} ${post["last_name"]}`
-  document.body.append(postContainer)
+  let submitForm = document.querySelector("#submit-form")
+  submitForm.insertAdjacentElement('afterend', postContainer)
   postContainer.append(postInfo)
   postInfo.append(usernameContainer)
   usernameContainer.append(username)
@@ -26,7 +26,7 @@ const renderPost = (post) => {
   timestampText.innerText = post["creation_Date"].slice(5, 10)
   timestampContainer.append(timestampText)
   postInfo.append(timestampContainer)
- 
+
   //Post Content section
   let postContentContainer = document.createElement("div")
   postContentContainer.setAttribute("class", "post-content")
@@ -60,23 +60,6 @@ const renderPost = (post) => {
   commentSection.setAttribute("class", "comments-section")
   commentSection.setAttribute("id", `comment-section-${post["post_id"]}`)
   postContainer.append(commentSection)
-  let commentBox = document.createElement("div")
-  commentBox.setAttribute("class", "comment-box")
-  commentSection.append(commentBox)
-  let commenterName = document.createElement("div")
-  commenterName.setAttribute("class", "commenter-name")
-  commentBox.append(commenterName)
-  let commenterNameText = document.createElement("p")
-  commenterNameText.setAttribute("class", "commenter-name-text")
-  commenterName.append(commenterNameText)
-  commenterNameText.innerText = "username"
-  let commentersComment = document.createElement("div")
-  commentersComment.setAttribute("class", "commenter-comment")
-  commentBox.append(commentersComment)
-  let commenterCommentText = document.createElement("p")
-  commenterCommentText.setAttribute("class", "commenter-comment-text")
-  commenterCommentText.innerText = "This is my comment"
-  commentersComment.append(commenterCommentText)
 
   //Write comments section
   let writeCommentSection = document.createElement("div")
@@ -97,12 +80,13 @@ const renderPost = (post) => {
   let commentButtonSubmit = document.createElement("button")
   commentButtonSubmit.setAttribute("class", "submit-comment-button")
   commentButtonSubmit.innerText = ("Post Comment")
+  commentBar.append(commentButtonSubmit)
   commentButtonSubmit.addEventListener("click", async (event) => {
     event.preventDefault()
     const input = commentInput.value;
     console.log(input)
     console.log(post)
-    const body = { commentary: input, post_id: post['post_id'] ,user_id: welcome.id };
+    const body = { commentary: input, post_id: post['post_id'], user_id: welcome.id };
     console.log(body)
     const options = {
       method: "POST",
@@ -133,7 +117,6 @@ const renderPost = (post) => {
     commentersComment.append(commenterCommentText)
     console.log("this button works")
   })
-  commentBar.append(commentButtonSubmit)
 }
 const welcome = document.getElementById("welcome");
 console.log(welcome)
@@ -149,7 +132,7 @@ async function getPosts() {
   todoData.forEach(post => renderPost(post))
 }
 getPosts();
-  
+
 
 
 //Users Post
