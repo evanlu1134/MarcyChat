@@ -43,16 +43,16 @@ const renderPost = (post) => {
   likeButtonContainer.setAttribute("class", "like-button-container")
   postContainer.append(likeCommentButtonSection)
   likeCommentButtonSection.append(likeButtonContainer)
-  let likeButton = document.createElement("p")
+  let likeButton = document.createElement("img")
   likeButton.setAttribute("class", "like-button")
-  likeButton.innerText = "likeButton"
+  likeButton.src = "like_logo.png"
   likeButtonContainer.append(likeButton)
   let commentButtonContainer = document.createElement("div")
   commentButtonContainer.setAttribute("class", "comment-button-container")
   likeCommentButtonSection.append(commentButtonContainer)
-  let commentButton = document.createElement("p")
+  let commentButton = document.createElement("img")
   commentButton.setAttribute("class", "comment-button")
-  commentButton.innerText = "commentButton"
+  commentButton.src = "comment_logo.png"
   commentButtonContainer.append(commentButton)
 
   //comment section

@@ -2,18 +2,25 @@
     margin: auto;
     padding: auto;
 }
- body{
-    background-color: #0D2129;
-    color:#0D2129;
- }
- nav{
-    background-color: #261f1d;
-}
-.nav-link{
-    color:white;
+
+h2 {
+    color: white;
 }
 
-#marcy-logo{
+body {
+    background-color: #0D2129;
+    color: #0D2129;
+}
+
+nav {
+    background-color: #261f1d;
+}
+
+.nav-link {
+    color: white;
+}
+
+#marcy-logo {
     width: 50px;
     height: 50px;
 }
@@ -45,7 +52,7 @@
     border-radius: 0px 25px 25px 0px;
 }
 
-.post{
+.post {
     display: flex;
     flex-direction: column;
     background-color: #04aa6d;
@@ -55,7 +62,7 @@
     margin-top: 50px;
 }
 
-.post-info{
+.post-info {
     /* display:flex; */
     flex-direction: column;
     /* border-style: solid;
@@ -63,7 +70,7 @@
     width: 100%;
 }
 
-.username{
+.username {
     /* display: flex;
     flex-direction: row; */
     align-items: flex-start;
@@ -73,7 +80,7 @@
     margin-top: 2%; */
 }
 
-.username-text{
+.username-text {
     font-size: 17px;
     font-weight: bold;
     position: relative;
@@ -82,35 +89,76 @@
     /* margin-left: 3%;
     margin-top: 2%; */
 }
+
 /* .timestamp{
     margin-left: 3%;
 } */
 
-.timestamp-text{
+.timestamp-text {
     font-size: 13px;
     position: relative;
     bottom: 10px;
-    left: 22px;
+    left: 24px;
     /* margin-left: 3%;
     margin-bottom: 15%; */
 }
 
-.post-content{
+.post-content {
     width: 90%;
+    /* border-bottom: solid black; */
 }
 
-.post-content-text{
+.post-content-text {
     text-align: left;
     font-size: 24px;
 }
 
-.like-comment-button-section{
-    display:flex;
+.like-comment-button-section {
+    display: flex;
+    width: 90%;
+    border-bottom: solid black;
+    border-top: solid black;
+    color: white;
+    padding-top: .6%;
+    padding-bottom: .7%;
 }
 
-.comment-box{
-    display: flex;
+/* .like-button-container{
+    background-color: #0D2129;
+} */
+
+.like-button {
+    width: 30px;
+    height: 30px;
 }
+
+.comment-button {
+    width: 25px;
+    height: 25px;
+}
+
+/* .comments-section{
+    width: 100%;
+} */
+
+.comment-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+    background-color: green;
+    /* text-align: center; */
+}
+
+/* .commenter-name{
+    width:100%;
+    /* text-align: left; */
+} */
+
+.commenter-comment{
+    width: 100%;
+    /* text-align: left; */
+}
+
 .comment-text {
     justify-content: center;
     width: 430px;
@@ -119,7 +167,7 @@
     border: 0 solid black;
 }
 
-.submit-comment-button{
+.submit-comment-button {
     justify-content: center;
     background-color: white;
     min-height: 38px;
