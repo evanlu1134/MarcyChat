@@ -14,7 +14,7 @@ const renderPost = (post) => {
   usernameContainer.setAttribute("class", "username")
   let username = document.createElement("p")
   username.setAttribute("class", "username-text")
-  username.innerText = "username"
+  username.innerText = `${post["first_name"]} ${post["last_name"]}`
   document.body.append(postContainer)
   postContainer.append(postInfo)
   postInfo.append(usernameContainer)
@@ -23,7 +23,7 @@ const renderPost = (post) => {
   timestampContainer.setAttribute("class", "timestamp")
   let timestampText = document.createElement("p")
   timestampText.setAttribute("class", "timestamp-text")
-  timestampText.innerText = "10 hours ago"
+  timestampText.innerText = post["creation_Date"].slice(5,10)
   timestampContainer.append(timestampText)
   postInfo.append(timestampContainer)
 
@@ -33,7 +33,7 @@ const renderPost = (post) => {
   postContainer.append(postContentContainer)
   let postContentText = document.createElement("p")
   postContentText.setAttribute("class", "post-content-text")
-  postContentText.innerText = post
+  postContentText.innerText = post["post_description"]
   postContentContainer.append(postContentText)
 
   // like and comment button section
@@ -96,29 +96,30 @@ const renderPost = (post) => {
   let commentButtonSubmit = document.createElement("button")
   commentButtonSubmit.setAttribute("class", "submit-comment-button")
   commentButtonSubmit.innerText = ("Post Comment")
+  commentButtonSubmit.addEventListener("click", (event) => {
+    event.preventDefault()
+    console.log("this button works")
+  })
   commentBar.append(commentButtonSubmit)
 }
 const welcome = document.getElementById("welcome");
 const username = document.querySelector(".username-text");
 
-
+// Will get all posts from DB and render to DOM
 const url = "http://localhost:3000";
-
 async function getPosts() {
   let res = await fetch(`${url}/posts`);
   let data = await res.json();
   let todoData = await data;
-  for (const items of todoData) {
-    console.log(items)
-    let postTimes = items.post_description
-    renderPost(postTimes);
-  }
+  console.log(todoData)
+  todoData.forEach(post => renderPost(post))
 }
 getPosts();
 
 
 //Users Post
 submitPostButton.addEventListener("click", async (event) => {
+  event.preventDefault()
   const input = postInput.value;
   const body = { post_description: `${input}`, user_id: welcome.id };
   const post = {
@@ -130,24 +131,25 @@ submitPostButton.addEventListener("click", async (event) => {
   let postList = await response.json();
   console.log(postList)
   let newPost = postList[postList.length - 1];
+  console.log(newPost)
   renderPost(newPost);
 });
 
 //Comment post
-submitCommentButton.addEventListener("click", async (event) => {
-  const input = commentInput.value;
-  const body = { commentary: `${input}`, user_id: welcome.id };
-  const post = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  }
-  let response = await fetch(`${url}/posts`, post);
-  let postList = await response.json();
-  console.log(postList)
-  let newPost = postList[postList.length - 1];
-  renderPost(newPost);
-});
+// submitCommentButton.addEventListener("click", async (event) => {
+//   const input = commentInput.value;
+//   const body = { commentary: `${input}`, user_id: welcome.id };
+//   const post = {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify(body),
+//   }
+//   let response = await fetch(`${url}/posts`, post);
+//   let postList = await response.json();
+//   console.log(postList)
+//   let newPost = postList[postList.length - 1];
+//   renderPost(newPost);
+// });
 
 
 //rendering user's welcome
@@ -157,10 +159,10 @@ async function welcomeUser() {
   console.log(result)
   let welcomer = await result.first_name;
   let welcome_id = await result.user_id;
-  console.log(welcome_id)
-  welcome.id = welcome_id
-  welcome.innerText = `Welcome to Marcy Chat ${welcomer}`;
-  username.innerText = welcomer;
+  // console.log(welcome_id)
+  // welcome.id = welcome_id
+  // welcome.innerText = `Welcome to Marcy Chat ${welcomer}`;
+  // username.innerText = welcomer;
 }
 welcomeUser();
 
