@@ -39,6 +39,7 @@ nav {
     height: 38px;
     border-radius: 25px 0px 0px 25px;
     border: 0 solid black;
+    padding-left: 2%;
 }
 
 #submit-button-post {
@@ -142,17 +143,12 @@ nav {
  }
 
 .comment-box {
-    display: flex;
-    flex-direction: column;
     margin-top: 2%;
     background-color: #07c57f;
     border-radius: 25px;
-    /* padding: 3%; */
 }
 
 .commenter-name{
-    width: 100%; 
-    height: 10%;
     padding-left: 4%;
     padding-top: 2%;
 }
@@ -160,13 +156,12 @@ nav {
 .commenter-name-text{
     font-size: 12.5px;
     font-weight: bold;
-    height: 100%;
 }
 
 .commenter-comment{
-    width: 100%;
     padding-left: 5%;
     padding-right: 3%;
+    padding-bottom: .5%;
 }
 
 .commenter-comment-text{
@@ -175,18 +170,24 @@ nav {
 
 .comment-text {
     justify-content: center;
-    width: 430px;
+    width: 400px;
     height: 38px;
+    background-color: white;
+    color: #58997a;
     border-radius: 25px 0px 0px 25px;
     border: 0 solid black;
+    margin-top: 8%;
+    margin-bottom: 6%;
+    padding-left: 3%;
 }
 
 .submit-comment-button {
     justify-content: center;
-    background-color: white;
+    background-color: 058a59;
+    color: #58997a;
     min-height: 38px;
     min-width: 60px;
-    padding-right: 4px;
+    padding-right: 20px;
     border: 0 solid black;
     border-radius: 0px 25px 25px 0px;
-}
+} 
