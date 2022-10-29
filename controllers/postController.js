@@ -12,7 +12,7 @@ const addPost = async (req, res) => {
     console.log(req.body)
     const addList = await Post.addPostFromDB(post_description, user_id)
     return addList ? res.status(200).send(addList) : res.sendStatus(404);
-}
+} 
 module.exports = {
     getPosts,
     addPost
