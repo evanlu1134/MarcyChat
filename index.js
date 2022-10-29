@@ -23,7 +23,7 @@ const renderPost = (post) => {
   timestampContainer.setAttribute("class", "timestamp")
   let timestampText = document.createElement("p")
   timestampText.setAttribute("class", "timestamp-text")
-  timestampText.innerText = post["creation_Date"].slice(5,10)
+  timestampText.innerText = post["creation_Date"].slice(5, 10)
   timestampContainer.append(timestampText)
   postInfo.append(timestampContainer)
 
@@ -58,6 +58,7 @@ const renderPost = (post) => {
   //comment section
   let commentSection = document.createElement("div")
   commentSection.setAttribute("class", "comments-section")
+  commentSection.setAttribute("id", `comment-section-${post["post_id"]}`)
   postContainer.append(commentSection)
   let commentBox = document.createElement("div")
   commentBox.setAttribute("class", "comment-box")
@@ -96,8 +97,40 @@ const renderPost = (post) => {
   let commentButtonSubmit = document.createElement("button")
   commentButtonSubmit.setAttribute("class", "submit-comment-button")
   commentButtonSubmit.innerText = ("Post Comment")
-  commentButtonSubmit.addEventListener("click", (event) => {
+  commentButtonSubmit.addEventListener("click", async (event) => {
     event.preventDefault()
+    const input = commentInput.value;
+    console.log(input)
+    console.log(post)
+    const body = { commentary: input, post_id: post['post_id'] ,user_id: welcome.id };
+    console.log(body)
+    const options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }
+    let response = await fetch(`http://localhost:3000/comments`, options);
+    let postList = await response.json();
+    let newPost = postList[postList.length - 1];
+    console.log(newPost)
+
+    let commentBox = document.createElement("div")
+    commentBox.setAttribute("class", "comment-box")
+    commentSection.append(commentBox)
+    let commenterName = document.createElement("div")
+    commenterName.setAttribute("class", "commenter-name")
+    commentBox.append(commenterName)
+    let commenterNameText = document.createElement("p")
+    commenterNameText.setAttribute("class", "commenter-name-text")
+    commenterName.append(commenterNameText)
+    commenterNameText.innerText = `${newPost['first_name']} ${newPost['last_name']}`
+    let commentersComment = document.createElement("div")
+    commentersComment.setAttribute("class", "commenter-comment")
+    commentBox.append(commentersComment)
+    let commenterCommentText = document.createElement("p")
+    commenterCommentText.setAttribute("class", "commenter-comment-text")
+    commenterCommentText.innerText = newPost["commentary"]
+    commentersComment.append(commenterCommentText)
     console.log("this button works")
   })
   commentBar.append(commentButtonSubmit)
@@ -118,6 +151,7 @@ async function getPosts() {
 getPosts();
 
 
+
 //Users Post
 submitPostButton.addEventListener("click", async (event) => {
   event.preventDefault()
@@ -132,6 +166,7 @@ submitPostButton.addEventListener("click", async (event) => {
   }
   let response = await fetch(`${url}/posts`, post);
   let postList = await response.json();
+  console.log(postList)
   let newPost = postList[postList.length - 1];
   console.log(newPost)
   renderPost(newPost);
