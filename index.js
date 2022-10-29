@@ -23,7 +23,7 @@ const renderPost = (post) => {
   timestampContainer.setAttribute("class", "timestamp")
   let timestampText = document.createElement("p")
   timestampText.setAttribute("class", "timestamp-text")
-  timestampText.innerText = post["creation_Date"].slice(5, 10)
+  timestampText.innerText = `${post["creation_Date"].slice(5, 10)} at ${post["creation_Date"].slice(11, 16)}`
   timestampContainer.append(timestampText)
   postInfo.append(timestampContainer)
 
