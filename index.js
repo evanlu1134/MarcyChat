@@ -196,7 +196,7 @@ async function welcomeUser() {
   console.log(welcome_id)
   console.log(welcome)
   welcome.id = welcome_id
-  welcome.innerText = `Welcome to Marcy Chat ${welcomer}`;
+  // welcome.innerText = `Welcome to Marcy Chat ${welcomer}`;
   // username.innerText = welcomer;
 }
 welcomeUser();
