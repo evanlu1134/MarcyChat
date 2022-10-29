@@ -103,6 +103,7 @@ const renderPost = (post) => {
   commentBar.append(commentButtonSubmit)
 }
 const welcome = document.getElementById("welcome");
+console.log(welcome)
 const username = document.querySelector(".username-text");
 
 // Will get all posts from DB and render to DOM
@@ -121,7 +122,9 @@ getPosts();
 submitPostButton.addEventListener("click", async (event) => {
   event.preventDefault()
   const input = postInput.value;
-  const body = { post_description: `${input}`, user_id: welcome.id };
+  let id = parseInt(welcome.id)
+  const body = { post_description: `${input}`, user_id: id };
+  console.log(body)
   const post = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -129,7 +132,6 @@ submitPostButton.addEventListener("click", async (event) => {
   }
   let response = await fetch(`${url}/posts`, post);
   let postList = await response.json();
-  console.log(postList)
   let newPost = postList[postList.length - 1];
   console.log(newPost)
   renderPost(newPost);
@@ -159,9 +161,10 @@ async function welcomeUser() {
   console.log(result)
   let welcomer = await result.first_name;
   let welcome_id = await result.user_id;
-  // console.log(welcome_id)
-  // welcome.id = welcome_id
-  // welcome.innerText = `Welcome to Marcy Chat ${welcomer}`;
+  console.log(welcome_id)
+  console.log(welcome)
+  welcome.id = welcome_id
+  welcome.innerText = `Welcome to Marcy Chat ${welcomer}`;
   // username.innerText = welcomer;
 }
 welcomeUser();
