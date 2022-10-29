@@ -2,9 +2,15 @@
     margin: auto;
     padding: auto;
 }
-
-nav{
-    background-color: black;
+ body{
+    background-color: #0D2129;
+    color:white;
+ }
+ nav{
+    background-color: #0D2129;
+}
+.nav-link{
+    color:white;
 }
 
 #marcy-logo{
@@ -42,8 +48,9 @@ nav{
 .post{
     display: flex;
     flex-direction: column;
-    background-color: yellow;
-    width: 60%;
+    background-color: #04AA6D;
+    width: 50%;
+    height: 60%;
     border-radius: 25px;
     margin-top: 50px;
 }
