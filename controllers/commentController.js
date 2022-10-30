@@ -8,9 +8,9 @@ const getComments = async (req, res) => {
 }
 
 const addComment = async (req, res) => {
-    const {commentary, post_id, id} = req.body
+    const {commentary, post_id, user_id} = req.body
     console.log(req.body)
-    const addComment = await Comment.addCommentToDB(commentary, post_id, id)
+    const addComment = await Comment.addCommentToDB(commentary, post_id, user_id)
     return addComment ? res.status(200).send(addComment) : res.sendStatus(404);
 }
 module.exports = {
