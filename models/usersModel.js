@@ -19,15 +19,15 @@ class UserModel {
 
     };
 
-<<<<<<< HEAD
+
     static createUserFromDb(...args){
      
         return pool.query('INSERT INTO users (first_name, last_name, email, password) VALUES ($1,$2,$3,$4) RETURNING * ', args).then(results => { return results.rows[0] })
-=======
+
     static createUserFromDb(...args) {
 
         return pool.query('INSERT INTO users (first_name, last_name, email, password) VALUES ($1,$2,$3,$4) RETURNING * ', args).then(results => { return results.rows })
->>>>>>> 53d958bbc1dc99b300317ca2ae4ba7435408c44a
+
     };
 
 
