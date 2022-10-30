@@ -1,8 +1,15 @@
 const express = require("express");
-const authController = require("../Controllers/AuthController");
+const { authCheck, validateLogin } = require("../controllers/authController");
+const authController = require("../controllers/authController");
 const router = express.Router();
 
+// router.get("/login", authController.authCheck);
+
 router.post("/login", authController.validateLogin);
+
+router.get("/login", authController.validateLogin);
+
+//  authController.validateLogin
 
 router.post("/register", authController.validateRegistration);
 

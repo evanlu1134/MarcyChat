@@ -7,10 +7,10 @@ class UserModel {
 
     };
 
-    // static getAllUsersInfoFromDB(id){
-    //     return pool.query('SELECT first_name FROM users JOIN posts ON users.user_id = posts.user_id WHERE users.user_id = $1;'[id]).then(results => {console.log(results); return results.rows[0].first_name})
+    static getAllUsersInfoFromDB(){
+        return pool.query('SELECT first_name FROM users JOIN posts ON users.user_id = posts.user_id WHERE users.user_id = $1;').then(results => {console.log(results); return results.rows[0].first_name})
 
-    // };
+    };
 
     static getSingleUserFromDB = (id) => {
         return pool
@@ -20,8 +20,8 @@ class UserModel {
     };
 
     static createUserFromDb(...args){
- 
-        return pool.query('INSERT INTO users (first_name, last_name, email, password) VALUES ($1,$2,$3,$4) RETURNING * ', args).then(results => { return results.rows })
+     
+        return pool.query('INSERT INTO users (first_name, last_name, email, password) VALUES ($1,$2,$3,$4) RETURNING * ', args).then(results => { return results.rows[0] })
     };
 
 
@@ -41,5 +41,6 @@ class UserModel {
 function getCurrentDateJson() {
     return new Date().toJSON();
 }
+
 
 module.exports = UserModel;
