@@ -5,7 +5,7 @@ const connectionDevelopment = {
     user: 'root',
     password: 'e',
     host: 'localhost',
-    port: 5433
+    port: 5432
   }
   const connectionProduction = {
     connectionString: process.env.DATABASE_URL,

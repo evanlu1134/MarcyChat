@@ -95,7 +95,7 @@ const renderPost = (post) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     }
-    let response = await fetch(`http://localhost:3000/comments`, options);
+    let response = await fetch(`http://localhost:5432/comments`, options);
     let postList = await response.json();
     let newPost = postList[postList.length - 1];
 
@@ -123,7 +123,7 @@ console.log(welcome)
 const username = document.querySelector(".username-text");
 
 // Will get all posts from DB and render to DOM
-const url = "http://localhost:3000";
+const url = "http://localhost:5432";
 async function getPosts() {
   let res = await fetch(`${url}/posts`);
   let data = await res.json();
