@@ -2,23 +2,40 @@
     margin: auto;
     padding: auto;
 }
-h2 {
-    color: white;
-}
+
 body {
     background-color: #0D2129;
     color: #0D2129;
 }
 nav {
-    background-color: #261F1D;
+    display: flex;
+    background-color: #0D2129;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 2px solid #21323a;
+    padding-bottom: 2%;
 }
-.nav-link {
-    color: white;
+.logo{
+    padding-right: 59%;
+    padding-top: 1.2%;
 }
-#marcy-logo {
-    width: 50px;
-    height: 50px;
+
+.links{
+    padding-top: 1.5%;
 }
+#marcy-logo{
+    color:white;
+    font-weight: 560;
+    font-size: 2.35rem;
+}
+
+#sign-out{
+    color:#04AA6D;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 #post-bar {
     display: flex;
     justify-content: center;
@@ -105,6 +122,7 @@ nav {
     color: white;
     padding-top: .6%;
     padding-bottom: .7%;
+    height: 42px;
 }
 /* .like-button-container{
     background-color: #0D2129;
@@ -113,9 +131,18 @@ nav {
     width: 30px;
     height: 30px;
 }
+
+.like-button:hover {
+    width: 35px;
+    height: 34px
+}
 .comment-button {
     width: 25px;
     height: 25px;
+}
+.comment-button:hover {
+    width: 30px;
+    height: 30px
 }
 .comments-section{
     width: 80%;

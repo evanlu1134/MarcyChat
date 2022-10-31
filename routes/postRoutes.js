@@ -7,5 +7,5 @@ router.get('/', postController.getPosts);
 
 router.post('/', postController.addPost);
 
-
+ 
 module.exports = router;
