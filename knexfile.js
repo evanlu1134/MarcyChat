@@ -8,8 +8,8 @@
     client: 'pg',
     connection: {
       database: 'marcy_chat',
-      user:     '',
-      password: '',
+      user:     'root',
+      password: 'e',
     }
   },
   production: {
