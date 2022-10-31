@@ -44,14 +44,19 @@ login.addEventListener("click", async() => {
     let response = await fetch(`${url}/all`)
     data = await response.json()
     console.log(data)
-    let emailChecker = data.findIndex(ele => ele.email === email)
-    let passwordChecker = data.findIndex(ele => ele.password === password)
-    if(emailChecker && passwordChecker) verifyPassword() 
-    }
-  });
+    let emailChecker = await data.findIndex(ele => ele.email === email)
+    let passwordChecker = await data.findIndex(ele => ele.password === password)
+    if (emailChecker === -1 && passwordChecker === -1){
+      alert("Please Input the Correct Password or Email")
+    } else if(passwordChecker === -1) {
+      alert("Please Input the Correct Password")
+    } else {
+      verifyPassword()
+    }} 
+  })
 });
 
-function verifyPassword() {
+async function verifyPassword() {
   const mailformat =/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
   const pw = document.querySelector("#password").value;
   const email = document.querySelector("#email").value;
