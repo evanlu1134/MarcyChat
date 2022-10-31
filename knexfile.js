@@ -10,6 +10,7 @@
       database: 'marcy_chat',
       user:     'root',
       password: 'e',
+      port: 5433,
     }
   },
   production: {
