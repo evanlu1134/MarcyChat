@@ -1,15 +1,22 @@
+.navbar {
+  list-style-type: none;
+}
+
+.learn {
+  padding-left: 20px;
+  margin:15px
+}
+
 .modal {
     display: none; 
     position: relative;
-    z-index: 1;
-    padding-top: 100px; 
+    z-index: 3;
+    padding-top: 200px; 
     right: 0;
     top: 0;
     width: 50%; 
     height: 80%; 
     overflow: auto; 
-    background-color: #0D2129;
-    color:white;
    
   }
   #intro{
@@ -21,17 +28,19 @@
     padding: 50px;
   }
   .img{
-    width:300px;
-    height:300px;
+    max-width:30%;
+    max-height:30%;
+    border-radius: 50%;
+    border:3px solid black;
   }
   /* Modal Content */
   .modal-content {
-    background-color: transparent;
-    color: white;
+    background-color: white;
+    color: black;
     margin: auto;
     padding: 30px;
-
     width: 80%;
+    border: 5px solid black;
   }
   
   /* The Close Button */
@@ -44,11 +53,26 @@
   
   .close:hover,
   .close:focus {
-    color: #000;
+    color:  white;
     text-decoration: none;
     cursor: pointer;
   }
+
   #nav-item{
-    
    padding:20px;
   }
+
+  
+  #create-todo-form {
+    max-width: 100%;
+  }
+
+.formtype {
+  padding-top:20px
+}
+
+#regbutton{
+  margin-top:30px
+}
+
+
