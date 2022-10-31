@@ -1,4 +1,4 @@
-const url = "http://localhost:5432/users";
+const url = "http://localhost:3000/users";
 const form = document.forms["create-todo-form"];
 
 //Modal

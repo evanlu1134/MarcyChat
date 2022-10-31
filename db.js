@@ -5,7 +5,7 @@ const connectionDevelopment = {
     user: 'root',
     password: 'e',
     host: 'localhost',
-    port: 5432
+    port: 5433
   }
   const connectionProduction = {
     connectionString: process.env.DATABASE_URL,
@@ -14,4 +14,4 @@ const connectionDevelopment = {
 
 const pool = new Pool(process.env.NODE_ENV === 'production' ? connectionProduction : connectionDevelopment)
 
-module.exports = pool
+module.exports = { pool }
