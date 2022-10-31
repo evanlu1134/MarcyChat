@@ -150,7 +150,7 @@ submitPostButton.addEventListener("click", async (event) => {
   let newPost = postList[postList.length - 1];
   console.log(newPost)
   renderPost(newPost);
-});
+}); 
 
 //Render All commentPost to DOM
 async function getComments() {
@@ -198,8 +198,8 @@ welcomeUser();
 
 
 //logout button
-const logout = document.querySelector("#logout");
+const signOut = document.querySelector("#sign-out");
 
-logout.addEventListener("click", () => {
+signOut.addEventListener("click", () => {
   window.location.href = "./login.html";
 });
