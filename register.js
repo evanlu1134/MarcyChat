@@ -35,7 +35,7 @@ async function verifyPassword() {
   const mailFormat =
     /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
   let message =
-    "Please add the correct email, password, or a non-existing email!";
+    "Please add a correct email, password, or non-existing email!";
   const response = await fetch(`${url}/all`);
   const data = await response.json();
   console.log(data);
@@ -75,7 +75,7 @@ async function verifyPassword() {
       };
       await fetch(`${url}/register`, requestOptions);
       window.location.href = "./login.html";
-      message = "Please Login Now";
+      message = "Please Click the Login Button";
     }
   }
   alert(message);

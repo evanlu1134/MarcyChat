@@ -39,31 +39,50 @@ button:hover {
 }
 
 img.avatar {
-  width: 10%;
+  min-width: 5%;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.container {  
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.psw{
+  padding:20px;
+}
+.img{
+  min-width: 5%;
   border-radius: 50%;
 }
 
-.container {
-  padding: 16px;
+#email {
+  margin-bottom:35px;
+  max-width:50%;
 }
 
-span.password {
-  float: right;
-  padding-top: 16px;
+#password {
+  margin-bottom:35px;
+  max-width:50%;
 }
 
-/* The Modal (background) */
+#load{
+  max-width: 70%;
+}
+
+
+
 .modal {
-  display: none; /* Hidden by default */
-  position: relative; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none; 
+  position: relative; 
+  z-index: 1; 
   left: 0;
   margin-top: 10px;
-  width: 50%; /* Full width */
-  height: 70%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 50%; 
+  height: 70%; 
+  overflow: auto; 
   padding-top: 30px;
   margin: auto;
 }
@@ -71,9 +90,10 @@ span.password {
 /* Modal Content/Box */
 #create-todo-form {
   background-color:black;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  margin: 5% auto 15% auto; 
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 80%; 
+  border: 3px solid gray;
 }
 
 /* The Close Button (x) */
@@ -81,14 +101,14 @@ span.password {
   position: absolute;
   right: 25px;
   top: 0;
-  color: #000;
+  color: white ;
   font-size: 35px;
   font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: red;
+  color:white;
   cursor: pointer;
 }
 
@@ -134,15 +154,31 @@ span.password {
 }
 .login{
   display:flex;
-display: flex;
-justify-content: center;
-align-items: center;
-  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width:120px;
   height:120px;
   border-radius: 50%;
   font-size: x-large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: auto;
+  transition: transform 250ms;
+  background: #232323;
+  color: #FFFFFF;
+  background: #232323;
+  }
+  
+  .login:hover {
+    transform: translateY(-15px);
+    background: green;
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px black, 0 0 30px black, 0 0 40px black, 0 0 55px black, 0 0 75px black;
+    color: #FFFFFF;
+    background: green;
+  }
 
-}
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
+    40% {transform: translateY(-30px);} 
+    60% {transform: translateY(-15px);} 
+ } 
