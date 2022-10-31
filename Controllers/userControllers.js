@@ -6,9 +6,7 @@ const bcrypt = require('bcrypt')
         return res.status(201).json(users);
     }
     const getAllUsersInfo = async (req, res) => {
-      
         const user = await UserModel.getAllUsersInfoFromDB();
-        console.log(user.first_name)
         return res.status(200).json(user);
     };
 
@@ -26,11 +24,8 @@ const bcrypt = require('bcrypt')
 
     const createUser = async (req, res) => {
         const {first_name, last_name, email, password} = req.body
-        console.log(req.body)
-        const saltRounds=10;
-        let hashedpassword= await bcrypt.hash(password, saltRounds)
-        const user = await UserModel.createUserFromDb(first_name, last_name, email, hashedpassword)
-        return res.status(201).json(user);
+        const userInfo = await UserModel.createUserFromDb(first_name, last_name, email, password)
+        return res.status(201).json(userInfo);
 
     }
     module.exports={getAllUsers,getSingleUser,getSingleUserById,createUser,getAllUsersInfo}
