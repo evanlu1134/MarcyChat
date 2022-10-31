@@ -45,14 +45,14 @@ const renderPost = (post) => {
   likeCommentButtonSection.append(likeButtonContainer)
   let likeButton = document.createElement("img")
   likeButton.setAttribute("class", "like-button")
-  likeButton.src = "like_logo.png"
+  likeButton.src = "homeAssests/like_logo.png"
   likeButtonContainer.append(likeButton)
   let commentButtonContainer = document.createElement("div")
   commentButtonContainer.setAttribute("class", "comment-button-container")
   likeCommentButtonSection.append(commentButtonContainer)
   let commentButton = document.createElement("img")
   commentButton.setAttribute("class", "comment-button")
-  commentButton.src = "comment_logo.png"
+  commentButton.src = "homeAssests/comment_logo.png"
   commentButtonContainer.append(commentButton)
 
   //comment section
@@ -76,6 +76,7 @@ const renderPost = (post) => {
   commentInput.setAttribute("name", "search")
   commentInput.setAttribute("size", "35")
   commentInput.setAttribute("placeholder", "     Write a comment...")
+  commentInput.setAttribute("autocomplete", "off")
   commentBar.append(commentInput)
   let commentButtonSubmit = document.createElement("button")
   commentButtonSubmit.setAttribute("class", "submit-comment-button")
@@ -84,10 +85,8 @@ const renderPost = (post) => {
   commentButtonSubmit.addEventListener("click", async (event) => {
     event.preventDefault()
     const input = commentInput.value;
-    console.log(input)
-    console.log(post)
+    commentInput.value = ""
     const body = { commentary: input, post_id: post['post_id'], user_id: welcome.id };
-    console.log(body)
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -96,7 +95,6 @@ const renderPost = (post) => {
     let response = await fetch(`http://localhost:3000/comments`, options);
     let postList = await response.json();
     let newPost = postList[postList.length - 1];
-    console.log(newPost)
 
     let commentBox = document.createElement("div")
     commentBox.setAttribute("class", "comment-box")
@@ -115,7 +113,6 @@ const renderPost = (post) => {
     commenterCommentText.setAttribute("class", "commenter-comment-text")
     commenterCommentText.innerText = newPost["commentary"]
     commentersComment.append(commenterCommentText)
-    console.log("this button works")
   })
 }
 const welcome = document.getElementById("welcome");
@@ -194,20 +191,10 @@ async function welcomeUser() {
   let welcomer = await result.first_name;
   let welcome_id = await result.user_id;
   console.log(welcome_id)
-  console.log(welcome)
+  console.log(welcomer)
   welcome.id = welcome_id
-  // welcome.innerText = `Welcome to Marcy Chat ${welcomer}`;
-  // username.innerText = welcomer;
 }
 welcomeUser();
-
-
-// async function loadAll() {
-//   const response = await fetch(`${url}/users/all`);
-//   const data = await response.json();
-//   console.log(data)
-// }
-// loadAll()
 
 
 //logout button

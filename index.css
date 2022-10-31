@@ -1,31 +1,24 @@
-
 * {
     margin: auto;
     padding: auto;
 }
-
 h2 {
     color: white;
 }
-
 body {
     background-color: #0D2129;
     color: #0D2129;
 }
-
 nav {
     background-color: #261F1D;
 }
-
 .nav-link {
     color: white;
 }
-
 #marcy-logo {
     width: 50px;
     height: 50px;
 }
-
 #post-bar {
     display: flex;
     justify-content: center;
@@ -33,7 +26,6 @@ nav {
     border-collapse: collapse;
     margin-bottom: 50px;
 }
-
 #post-text {
     justify-content: center;
     width: 430px;
@@ -42,7 +34,6 @@ nav {
     border: 0 solid black;
     padding-left: 2%;
 }
-
 #submit-button-post {
     justify-content: center;
     background-color: white;
@@ -53,7 +44,6 @@ nav {
     border-color: black;
     border-radius: 0px 25px 25px 0px;
 }
-
 .post {
     display: flex;
     flex-direction: column;
@@ -63,7 +53,6 @@ nav {
     border-radius: 25px;
     margin-top: 50px;
 }
-
 .post-info {
     /* display:flex; */
     flex-direction: column;
@@ -71,7 +60,6 @@ nav {
     border-color: black; */
     width: 100%;
 }
-
 .username {
     /* display: flex;
     flex-direction: row; */
@@ -81,7 +69,6 @@ nav {
     /* margin-left: 3%;
     margin-top: 2%; */
 }
-
 .username-text {
     font-size: 17px;
     font-weight: bold;
@@ -130,47 +117,36 @@ nav {
     width: 25px;
     height: 25px;
 }
-
 .comments-section{
     width: 80%;
  }
-
 .comment-box {
     margin-top: 2%;
-    background-color: #07c57f;
+    background-color: #07C57F;
     border-radius: 25px;
 }
-
 .commenter-name{
     padding-left: 4%;
     padding-top: 2%;
 }
-
 .commenter-name-text{
     font-size: 12.5px;
     font-weight: bold;
 }
-
 .commenter-comment{
     padding-left: 5%;
     padding-right: 3%;
     padding-bottom: .5%;
 }
-
 .commenter-comment-text{
     font-size: 13px;
-}
-.commenter-comment-text{
-    font-size: 13px;    
-    line-height: 0%;
-    text-align: center;
 }
 .comment-text {
     justify-content: center;
     width: 400px;
     height: 38px;
     background-color: white;
-    color: #58997a;
+    color: #58997A;
     border-radius: 25px 0px 0px 25px;
     border: 0 solid black;
     margin-top: 8%;
@@ -180,10 +156,20 @@ nav {
 .submit-comment-button {
     justify-content: center;
     background-color: 058a59;
-    color: #58997a;
+    color: #58997A;
     min-height: 38px;
     min-width: 60px;
     padding-right: 20px;
     border: 0 solid black;
     border-radius: 0px 25px 25px 0px;
-} 
+}
+
+
+
+
+
+
+
+
+
+

@@ -12,10 +12,10 @@ app.use(express.json())
 app.use(cors())
 
 //pathways
-app.use("/", userRoutes)
-app.use("/", postRouter)
+app.use("/users", userRoutes)
+app.use("/posts", postRouter)
 app.use("/comments", commentRouter)
-app.use("/", authRoutes)
+app.use("/auth", authRoutes)
 
 
 

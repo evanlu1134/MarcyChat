@@ -11,7 +11,6 @@ class authController {
     // Checks if User already exists
     let passwords = await bcrypt.hash(password, 10)
     const user = await UserModel.getUserFromDB(email);
-    console.log(passwords)
     const user2 = await UserModel.getUserFromDBByID(passwords)
     if (user.password.length > 0 && user2.password.length > 0) { return res.status(401).json("User exists"), validated = true; }
 
@@ -27,30 +26,21 @@ class authController {
     console.log(name)
     return res.status(201).json(`${name}`);
   }
+
   static validateLogin = async (req, res) => {
     console.log("hello")
     const { email, password } = req.body;
     const user = await UserModel.getUserFromDB(email);
     let passwords = await bcrypt.hash(password, 10)
     console.log(user)
-console.log(passwords)
+    console.log(passwords)
 
-    const isValid = async () => {
-    const compare = await (bcrypt.compare(passwords,user.password)).then(result=>{
-      console.log(result)
-    })
-    console.log(compare)
-      if (!compare || user == null) {
-        return false
-      } else {
-        return true
+    const isValid = async (req,res) => {
+      const validPassword = await bcrypt.compare(req.body.password, user.password)
+      res.status(200).send(validPassword)
       }
+      isValid()
 
-    }
-    isValid()
-    console.log(isValid())
-    res.send(isValid())
-  
     const token = jwt.sign({ user_id: user.user_id }, "Your_Secret_Key", {
       expiresIn: "1d",
     });

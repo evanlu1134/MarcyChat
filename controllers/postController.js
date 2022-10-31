@@ -1,5 +1,6 @@
 const { pool } = require('../db.js');
 const Post = require('../models/postModel')
+
 const getPosts = async (req, res) => {
     const postList = await Post.getPostFromDB()
     return postList ? res.status(200).send(postList) : res.sendStatus(404);
