@@ -6,6 +6,7 @@ const userRoutes = require("./routes/userRouter.js");
 const authRoutes = require("./routes/AuthRouter.js");
 const postRouter = require('./routes/postRoutes')
 const commentRouter = require('./routes/commentRoutes')
+const PORT = process.env.PORT || 3000
 
 //middleware
 app.use(express.json())
@@ -19,5 +20,5 @@ app.use("/auth", authRoutes)
 
 
 
-app.listen(3000)
+app.listen(PORT)
 
