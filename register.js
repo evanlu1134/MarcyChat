@@ -30,8 +30,10 @@ form.addEventListener("submit", (event) => {
 async function verifyPassword() {
   const email = document.querySelector("#email").value;
   const password = document.querySelector("#password").value;
-  const first_name = document.querySelector("#firstName").value;
-  const last_name = document.querySelector("#lastName").value;
+  let first_name= document.querySelector("#firstName").value;
+  let last_name = document.querySelector("#lastName").value;
+  first_name = first_name.charAt(0).toUpperCase() + first_name.slice(1)
+  last_name = last_name.charAt(0).toUpperCase() + last_name.slice(1)
   const mailFormat =
     /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
   let message =
@@ -62,10 +64,10 @@ async function verifyPassword() {
       const myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
       const raw = JSON.stringify({
-        first_name: first_name,
-        last_name: last_name,
-        email: email,
-        password: password,
+        "first_name": first_name,
+        "last_name": last_name,
+        "email": email,
+        "password": password,
       });
       const requestOptions = {
         method: "POST",

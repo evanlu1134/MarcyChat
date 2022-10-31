@@ -54,7 +54,9 @@ const renderPost = (post) => {
   commentButton.setAttribute("class", "comment-button")
   commentButton.src = "homeAssests/comment_logo.png"
   commentButtonContainer.append(commentButton)
-
+  commentButton.addEventListener("click", () => {
+    commentBar.style.display = "block"
+  });
   //comment section
   let commentSection = document.createElement("div")
   commentSection.setAttribute("class", "comments-section")
@@ -70,12 +72,13 @@ const renderPost = (post) => {
   let commentBar = document.createElement("div")
   commentBar.setAttribute("class", "comment-bar")
   commentForm.append(commentBar)
+  commentBar.style.display = "none"
   let commentInput = document.createElement("input")
   commentInput.setAttribute("type", "text")
   commentInput.setAttribute("class", "comment-text")
   commentInput.setAttribute("name", "search")
   commentInput.setAttribute("size", "35")
-  commentInput.setAttribute("placeholder", "     Write a comment...")
+  commentInput.setAttribute("placeholder", "Write a comment...")
   commentInput.setAttribute("autocomplete", "off")
   commentBar.append(commentInput)
   let commentButtonSubmit = document.createElement("button")
@@ -125,7 +128,7 @@ async function getPosts() {
   let res = await fetch(`${url}/posts`);
   let data = await res.json();
   let todoData = await data;
-  console.log(todoData)
+
   todoData.forEach(post => renderPost(post))
 }
 getPosts();
@@ -136,9 +139,10 @@ getPosts();
 submitPostButton.addEventListener("click", async (event) => {
   event.preventDefault()
   const input = postInput.value;
+  if(input.length !== 0) {
+  postInput.value = ""
   let id = parseInt(welcome.id)
   const body = { post_description: `${input}`, user_id: id };
-  console.log(body)
   const post = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -146,24 +150,26 @@ submitPostButton.addEventListener("click", async (event) => {
   }
   let response = await fetch(`${url}/posts`, post);
   let postList = await response.json();
-  console.log(postList)
   let newPost = postList[postList.length - 1];
-  console.log(newPost)
   renderPost(newPost);
-});
+} else {
+alert("Please add a Valid Comment")
+}
+})
+
 
 //Render All commentPost to DOM
 async function getComments() {
   let res = await fetch(`${url}/comments`);
   let data = await res.json();
   let commentData = await data;
-  console.log(commentData)
-  commentData.forEach((x) => {
+  commentData.forEach(async(x) => {
     let commentBox = document.createElement("div")
     commentBox.setAttribute("class", "comment-box")
     let postId = x.post_id
     let commentSection = document.querySelector(`#comment-section-${postId}`)
     commentSection.append(commentBox)
+  
     let commenterName = document.createElement("div")
     commenterName.setAttribute("class", "commenter-name")
     commentBox.append(commenterName)
@@ -187,19 +193,23 @@ getComments();
 async function welcomeUser() {
   const response = await fetch(`${url}/users`);
   const result = await response.json();
-  console.log(result)
   let welcomer = await result.first_name;
   let welcome_id = await result.user_id;
-  console.log(welcome_id)
-  console.log(welcomer)
+
   welcome.id = welcome_id
+  postInput.setAttribute("placeholder",`What's on your mind ${welcomer.charAt(0).toUpperCase() + welcomer.slice(1)}?`)
 }
 welcomeUser();
 
-
 //logout button
-const logout = document.querySelector("#logout");
+const logout = document.querySelector("#sign-out");
 
 logout.addEventListener("click", () => {
   window.location.href = "./login.html";
 });
+
+const mainPage = document.querySelector("#marcy-logo");
+mainPage.addEventListener("click", () => {
+  window.location.href = "./register.html";
+});
+

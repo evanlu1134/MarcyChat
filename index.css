@@ -53,13 +53,22 @@ nav {
 }
 #submit-button-post {
     justify-content: center;
-    background-color: white;
+    background-color: black;
     min-height: 38px;
     min-width: 60px;
     padding-right: 4px;
     border-style: solid;
-    border-color: black;
+    border-color: White;
     border-radius: 0px 25px 25px 0px;
+    color:white
+}
+
+#submit-button-post:hover {
+    color: #FFFFFF;
+    background: #232323;
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
+    color: #FFFFFF;
+    background: #232323;
 }
 .post {
     display: flex;
@@ -71,20 +80,11 @@ nav {
     margin-top: 50px;
 }
 .post-info {
-    /* display:flex; */
     flex-direction: column;
-    /* border-style: solid;
-    border-color: black; */
     width: 100%;
 }
 .username {
-    /* display: flex;
-    flex-direction: row; */
     align-items: flex-start;
-    /* border-style: solid; */
-    /* border-color: green; */
-    /* margin-left: 3%;
-    margin-top: 2%; */
 }
 .username-text {
     font-size: 17px;
@@ -123,6 +123,7 @@ nav {
     padding-top: .6%;
     padding-bottom: .7%;
     height: 42px;
+    margin:30px;
 }
 /* .like-button-container{
     background-color: #0D2129;
@@ -142,7 +143,9 @@ nav {
 }
 .comment-button:hover {
     width: 30px;
-    height: 30px
+    height: 30px;
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
 }
 .comments-section{
     width: 80%;
@@ -151,6 +154,7 @@ nav {
     margin-top: 2%;
     background-color: #07C57F;
     border-radius: 25px;
+    margin-bottom:5%;
 }
 .commenter-name{
     padding-left: 4%;
@@ -182,21 +186,37 @@ nav {
 }
 .submit-comment-button {
     justify-content: center;
-    background-color: 058a59;
-    color: #58997A;
+    background-color: black;
+    color: white;
     min-height: 38px;
     min-width: 60px;
     padding-right: 20px;
-    border: 0 solid black;
+    border: 1px solid black;
     border-radius: 0px 25px 25px 0px;
+}
+.submit-comment-button:hover {
+    color: #333333;
+    background: #FFFFFF;
+    text-shadow: 2px 2px 0px #FFFFFF, 5px 4px 0px rgba(0,0,0,0.15);
+    color: #333333;
+    background: black;
+}
+
+.linkers {
+    cursor: pointer;
 }
 
 
-
-
-
-
-
-
-
-
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
