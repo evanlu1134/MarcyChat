@@ -1,4 +1,4 @@
-const url = "http://localhost:3000/users";
+const url = "https://scary-coffin-46937.herokuapp.com/users";
 const form = document.forms["create-todo-form"];
 const welcome = document.getElementById("welcome");
 const register = document.getElementById("register");
