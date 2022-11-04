@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/evanlu1134/ECW#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "heroku": "^7.7.8",
