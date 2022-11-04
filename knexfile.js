@@ -8,9 +8,9 @@
     client: 'pg',
     connection: {
       database: 'marcy_chat',
-      user:     'root',
-      password: 'e',
-      port: 5433,
+      user:     '',
+      password: ''
+      // port: 4055
     }
   },
   production: {
