@@ -1,4 +1,4 @@
-const url = "https://scary-coffin-46937.herokuapp.com/auth/users";
+const url = "https://scary-coffin-46937.herokuapp.com/users";
 const form = document.forms["create-todo-form"];
 
 //Modal
