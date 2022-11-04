@@ -2,8 +2,8 @@ const { Pool } = require('pg')
 
 const connectionDevelopment = {
     database: 'marcy_chat',
-    user: '',
-    password: '',
+    user: 'evanlu0614',
+    password: 'elu',
     host: 'localhost',
     port: 5432
   }

@@ -119,7 +119,6 @@ const renderPost = (post) => {
   })
 }
 const welcome = document.getElementById("welcome");
-console.log(welcome)
 const username = document.querySelector(".username-text");
 
 // Will get all posts from DB and render to DOM

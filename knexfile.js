@@ -1,4 +1,3 @@
-
 // Update with your config settings.
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
@@ -8,9 +7,8 @@
     client: 'pg',
     connection: {
       database: 'marcy_chat',
-      user:     '',
-      password: ''
-      // port: 4055
+      user:     'evanlu0614',
+      password: 'elu'
     }
   },
   production: {

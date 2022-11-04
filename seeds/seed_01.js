@@ -9,7 +9,7 @@ exports.seed = async function (knex) {
   await knex('comments').del()
 
   await knex('users').insert([
-    { first_name: 'Evan', last_name: 'Lu', email: 'Evan4lfye@gmail.com', password: '12345678' },
+    { first_name: 'New', last_name: 'User', email: 'Evan4lfye@gmail.com', password: '12345678' },
   ]);
 
   await knex('posts').insert([
