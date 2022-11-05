@@ -130,6 +130,7 @@ async function getPosts() {
   let todoData = await data;
 
   todoData.forEach(post => renderPost(post))
+  getComments();
 }
 getPosts();
 
@@ -165,10 +166,16 @@ async function getComments() {
   let commentData = await data;
   commentData.forEach(async(x) => {
     let commentBox = document.createElement("div")
+    console.log(commentBox, "1")
     commentBox.setAttribute("class", "comment-box")
+    console.log(commentBox, "2")
     let postId = x.post_id
+    console.log(commentBox, "3")
     let commentSection = document.querySelector(`#comment-section-${postId}`)
+    console.log(commentSection)
+    console.log(commentBox, "4")
     commentSection.append(commentBox)
+    console.log(commentBox, "5")
   
     let commenterName = document.createElement("div")
     commenterName.setAttribute("class", "commenter-name")
@@ -186,7 +193,7 @@ async function getComments() {
     commentersComment.append(commenterCommentText)
   })
 }
-getComments();
+// getComments();
 
 
 //rendering user's welcome
