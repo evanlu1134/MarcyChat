@@ -1,6 +1,6 @@
 # MarcyChat
 
-MarcyChat Site: https://evanlu1134.github.io/ECW/
+MarcyChat Site: https://evanlu1134.github.io/MarcyChat/
 
 ## Heading
 The MarcyChat fancies those within the community to get together and communicate. The ideal tailors to plan events, find common ground, and gossip around while supporting each other. Those who join will be able to get information about all persons in the Marcy community. Welcome inside the Marcy family!
